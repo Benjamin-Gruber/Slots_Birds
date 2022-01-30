@@ -1,1 +1,8 @@
 GET http://127.0.0.1:3000/birds
+### 
+PATCH http://localhost:3000/birds/1
+content-Type: application/json
+
+{
+    "count": 5
+}
