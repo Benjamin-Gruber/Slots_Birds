@@ -7,7 +7,6 @@ function getBirds() {
 function Observed(id, body) {
   const bird = birds.find((el) => el.id === Number(id));
   bird.count = body.count;
-  bird.observer.push(body.observerName);
   bird.observer.push(body.observer);
 }
 

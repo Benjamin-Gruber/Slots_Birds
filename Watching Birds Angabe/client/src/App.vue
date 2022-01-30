@@ -10,7 +10,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <router-view :birds="birds" @getBirds="getBirds()" />
+        <router-view :birds="birds" @getBirds="getBirds()" @Observed="Observed" />
       </v-container>
     </v-main>
   </v-app>
@@ -43,6 +43,17 @@ export default {
         console.error(error);
       }
     },
+
+    async Observed(bird){
+      await axios({
+        url: `http://127.0.0.1:3000/birds/${bird.id}`,
+        method: 'PATCH',
+        data: {
+          count: (bird.count += 1),
+          observer: bird.name,
+        }
+      })
+    }
   },
 };
 </script>

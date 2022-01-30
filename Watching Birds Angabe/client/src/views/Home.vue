@@ -27,7 +27,7 @@
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.actions="{ item }">
-        <v-icon big class="mr-2 red--text"> mdi-eye </v-icon>
+        <v-icon big class="mr-2 red--text" @click="Observed(item)"> mdi-eye </v-icon>
       </template>
     </v-data-table>
   </div>
@@ -46,6 +46,15 @@ export default {
 
   components: {
     WatchedBirdman,
+  },
+
+  methods: {
+    Observed(item) {
+      item.name = this.vorname + ' ' + this.nachname;
+      this.$emit('Observed', item);
+      this.show = true;
+      this.vogel = item.commonName;
+    },
   },
 
   data() {
