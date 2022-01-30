@@ -9,7 +9,9 @@
       <v-btn color="primary" to="/about">About</v-btn>
     </v-app-bar>
     <v-main>
-      <v-container> <router-view /></v-container>
+      <v-container>
+        <router-view :birds="birds" @getBirds="getBirds()" />
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -25,7 +27,7 @@ export default {
     };
   },
 
-  created () {
+  created() {
     this.getBirds();
   },
 
