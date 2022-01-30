@@ -1,8 +1,6 @@
 const birds = require('../birds.json');
 
-async function getBirds() {
-  return birds;
-}
+const getBirds = () => birds;
 
 module.exports = {
   getBirds,
