@@ -6,7 +6,11 @@
         <v-col cols="4">
           <v-text-field label="Vorname" v-model="vorname"></v-text-field>
         </v-col>
+        <v-col cols="6">
+          <WatchedBirdman v-if="show == true" :vogel="vogel" />
+        </v-col>
       </v-row>
+      <v-row> </v-row>
       <v-row>
         <v-col cols="4">
           <v-text-field label="Nachname" v-model="nachname"></v-text-field>
@@ -15,7 +19,6 @@
       <span class="font-italic"
         >Click on the <b class="red--text">Eye</b> icon if you have observed that bird!</span
       >
-    
     </div>
     <v-data-table :headers="headers" :items="birds" class="elevation-1 mt-5">
       <!-- eslint-disable-next-line -->
@@ -27,6 +30,7 @@
 </template>
 
 <script>
+import WatchedBirdman from '@/components/WatchedBirdman.vue';
 export default {
   name: 'Home',
 
@@ -36,11 +40,15 @@ export default {
     },
   },
 
+  components: {
+    WatchedBirdman,
+  },
+
   data() {
     return {
       vorname: '',
       nachname: '',
-      vogelname: '',
+      vogel: '',
       show: false,
       headers: [
         {
