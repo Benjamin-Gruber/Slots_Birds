@@ -23,7 +23,11 @@
     <v-data-table :headers="headers" :items="birds" class="elevation-1 mt-5">
       <!-- eslint-disable-next-line -->
       <template v-slot:item.pic="{ item }">
-        <img :src="item.pic" alt="" width="150" />
+        <img :src="item.pic" width="150" />
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.actions="{ item }">
+        <v-icon big class="mr-2 red--text"> mdi-eye </v-icon>
       </template>
     </v-data-table>
   </div>
